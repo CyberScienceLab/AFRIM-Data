@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://afirm.cybersciencelab.com/schemas/gap.schema.json",
+  "title": "AFIRM GAP Record",
+  "type": "object",
+  "required": ["id", "name", "home", "closure_criterion"],
+  "additionalProperties": true,
+  "properties": {
+    "id": { "type": "string", "pattern": "^G[0-9]{4}$" },
+    "name": { "type": "string" },
+    "home": { "type": "string" },
+    "closure_criterion": { "type": "string" },
+    "status": { "type": "string" }
+  }
+}

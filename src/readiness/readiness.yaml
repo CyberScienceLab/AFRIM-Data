@@ -1,0 +1,39 @@
+- id: R0001
+  name: AI Interaction Logging & Retention
+  type: strengthen
+  description: Tamper-evidence, clock-sync, time source & uncertainty, correlation IDs, actor identity,
+    schema/version, retention, minimization, provider export format.
+- id: R0002
+  name: Model Checkpoint & Version Archiving
+- id: R0003
+  name: Inference Configuration Versioning
+- id: R0004
+  name: Retrieval Index Snapshotting
+  description: Addresses G0003 partial.
+- id: R0005
+  name: Model Signing, Attestation & Provenance Registration
+  description: Signed model/package manifest, trusted identity, key governance, transparency/registry
+    record, deployment attestation; watermark/fingerprint registration is an optional child measure, not
+    the default control.
+- id: R0006
+  name: Agent Action & Tool-Call Telemetry
+  type: strengthen
+- id: R0007
+  name: Training Data Provenance Records
+- id: R0008
+  name: Behavioral Baseline Capture
+- id: R0009
+  name: AI System, Component & Custodian Register
+  description: Component identity, owner/custodian, provider, model/package ID, deployment location, data
+    stores, tools/endpoints, logging locations, retention, export route, escalation contact. Strengthens
+    T0102/T0103/T0104.
+- id: R0010
+  name: Supplier Forensic Preservation, Export & Change-Notice Clauses
+  description: Preservation capability, export format, timestamps/time source, integrity metadata, retention,
+    model/config change notices, support for legal requests, evidence-delivery responsibility. Addresses
+    G0005 partial.
+- id: R0011
+  name: Reproducible AI Deployment Manifest / AI BOM
+  description: Model+adapter digests/signatures, tokenizer, container/image, code revision, dependencies,
+    runtime/hardware where material, prompt/config version, retrieval snapshot, embedding model, tool
+    schemas, attestation chain. A checkpoint alone is not the deployed system.

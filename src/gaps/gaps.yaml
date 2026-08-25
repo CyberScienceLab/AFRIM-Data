@@ -1,0 +1,28 @@
+- id: G0001
+  name: Performance, Error & Uncertainty Characterization
+  home: framework-wide
+  closure_criterion: Method-appropriate characterization — systematic errors, completeness, human dependence,
+    tool verification, repeatability/reproducibility, uncertainty — not a single statistical error rate.
+- id: G0002
+  name: Black-Box Attribution Methodology
+  home: P04 x black-box
+  closure_criterion: A validated path from interface-only observation to defensible causal claims.
+- id: G0003
+  name: Post-Incident Index Drift
+  home: P02/P04 x EC03
+  closure_criterion: A method to forensically reconstruct a drifted retrieval index as-at-incident.
+- id: G0004
+  name: AI Artifact Examination Tooling
+  home: P03 phase-wide
+  closure_criterion: A standardized, validated examination toolset (parsers/carvers/normalizers) for AI-native
+    artifacts.
+- id: G0005
+  name: Provider-Controlled Evidence Availability
+  home: P01/P02/P04 x grey/black
+  closure_criterion: Standard preservation/export requirements and evaluated provider implementations
+    (see R0010).
+- id: G0006
+  name: Evidence/Tool Poisoning & Safe AI-Artifact Examination
+  home: P02-P04
+  closure_criterion: Tested isolation, safe-parser, and AI-assistant controls against malicious artifacts
+    and prompt injection.

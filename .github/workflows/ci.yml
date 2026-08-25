@@ -1,0 +1,36 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-and-compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run schema + referential-integrity tests
+        run: pytest -v
+
+      - name: Compile dist/AFIRM.yaml
+        run: python tools/compile.py
+
+      - name: Upload compiled dist as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AFIRM-dist
+          path: dist/
+
+      # afirm-site consumes this repo as a git submodule and compiles it
+      # again at build time, so we don't commit dist/ here — this job exists
+      # to catch a broken compile before it ever reaches afirm-site's CI.

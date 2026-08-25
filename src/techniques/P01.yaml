@@ -1,0 +1,140 @@
+- id: T0101
+  name: Incident Characterization
+  phase: P01
+  sub_of: null
+  evidence_classes:
+  - P01
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Provisional, revisable four-tag typing (attack/failure/drift/misuse); v0.2 will split into orthogonal
+    fields (manifestation, system locus, causal hypothesis, actor/intent status, confidence).
+  status: active
+- id: T0102
+  name: Access Level Determination
+  phase: P01
+  sub_of: null
+  evidence_classes:
+  - P01
+  access_capability: []
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: Signature technique; per-component access assessment; derives the applicable technique set for
+    the engagement.
+  status: active
+- id: T0103
+  name: System Composition Mapping
+  phase: P01
+  sub_of: null
+  evidence_classes:
+  - P01
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: 'Architecture in scope: bare model / RAG / tool-using agent / multi-agent; enumerate components.
+    Seeds the evidence inventory.'
+  status: active
+- id: T0104
+  name: Evidence Source Inventory
+  phase: P01
+  sub_of: null
+  evidence_classes:
+  - EC01
+  - EC02
+  - EC03
+  - EC04
+  - EC05
+  - EC06
+  - EC07
+  access_capability: []
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures:
+  - id: R0009
+    relationship: strengthening
+  notes: safer-grade; classical ancestry Established
+  status: active
+  description: 'Evidence Source Inventory is the systematic enumeration, begun at engagement and iterated
+    throughout, of what evidence exists for an AI incident, where it lives, who controls it, how long
+    it will survive, and what does not exist. For each of AFIRM''s seven evidence classes, the examiner
+    records presence or absence, location and custodian, retention windows, and access constraints per
+    component. It descends from the classical identification activity in NIST SP 800-86, but is harder
+    in AI systems: evidence existence is not guaranteed by default, and evidence is distributed across
+    components with different owners under different retention policies and legal postures.'
+  claim_profile:
+    does_establish:
+    - presence, absence, location, custodian, and retention window of evidence per class and component,
+      as documented at inventory time
+    does_not_establish:
+    - that a component reported as evidence-absent is genuinely nonexistent rather than merely not produced
+    alternative_propositions:
+    - absence may reflect not_configured, expired, not_retained, inaccessible, not_produced, not_searched,
+      or confirmed_nonexistent — these are distinct states, not synonyms
+    corroboration_requirements:
+    - custodian representations documented verbatim so later contradictions are provable
+    quality_controls:
+    - timestamp the inventory
+    - initiate authorized preservation immediately through the engagement's legal/organizational process
+    stop_conditions:
+    - do not report provider non-production of evidence as confirmed nonexistence
+  references:
+  - text: NIST SP 800-86 — Guide to Integrating Forensic Techniques into Incident Response
+    status: verify
+  - text: RFC 3227 — Guidelines for Evidence Collection and Archiving
+    status: verify
+  - text: ISO/IEC 27037 — identification, collection, acquisition and preservation of digital evidence
+    status: verify
+  - text: EU AI Act logging/retention obligations
+    status: verify
+- id: T0104.001
+  name: AI Artifact Volatility Ordering
+  phase: P01
+  sub_of: T0104
+  evidence_classes:
+  - EC01
+  - EC02
+  - EC03
+  - EC04
+  - EC05
+  - EC06
+  - EC07
+  access_capability: []
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures:
+  - id: R0009
+    relationship: strengthening
+  notes: null
+  status: active
+- id: T0105
+  name: Reproducibility Pre-Assessment
+  phase: P01
+  sub_of: null
+  evidence_classes:
+  - EC01
+  - EC04
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: Reproducible / intermittent / extinct; governs replay availability (P04) and urgency of live-state
+    preservation.
+  status: active

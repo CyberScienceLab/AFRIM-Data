@@ -1,0 +1,404 @@
+- id: T0401
+  name: Controlled Incident Replay
+  phase: P04
+  sub_of: null
+  evidence_classes:
+  - EC01
+  - EC03
+  - EC04
+  - EC05
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: 'Broadened prerequisites: model package, tokenizer, adapters, prompt/config, seed/random state,
+    hardware/kernels where material, retrieval snapshot, orchestration code, tool schemas, time-dependent
+    external services. Separate exact/state-matched from distributional replay; sandbox side effects.
+    Failed replay does not refute the incident.'
+  status: active
+- id: T0401.001
+  name: Exact / State-Matched Replay
+  phase: P04
+  sub_of: T0401
+  evidence_classes:
+  - EC04
+  - EC05
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Identical-config reproduction under pinned state.
+  status: active
+- id: T0401.002
+  name: Layer-Isolation Replay
+  phase: P04
+  sub_of: T0401
+  evidence_classes:
+  - EC03
+  - EC04
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Inject exact retrieved context; isolate retrieval-vs-generation fault.
+  status: active
+- id: T0402
+  name: Model Identity & Provenance Verification
+  phase: P04
+  sub_of: null
+  evidence_classes:
+  - EC01
+  - EC02
+  - EC05
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Demonstrated
+    qualification: per sub-technique; .001 Established mechanics. Method families have different evidence
+      bases and none has forensic validation.
+  readiness_measures:
+  - id: R0005
+    relationship: enabling
+  - id: R0011
+    relationship: strengthening
+  - id: R0002
+    relationship: strengthening
+  notes: 'Separates propositions: exact artifact identity/integrity . deployment identity . lineage/derivation
+    . behavior source attribution . ownership-signal verification. Cryptographic identity/attestation
+    is the first sub-technique.'
+  status: active
+  description: 'Model Identity & Provenance Verification addresses several distinct forensic propositions
+    that must not be collapsed into one "identity" question, because they require different evidence
+    and have different error structures — exact artifact identity/integrity (an equality/cryptographic-verification
+    question: digests, signatures, manifests, attestations, not a similarity judgment), deployment identity
+    (whether the signed/approved artifact was actually loaded and executed), lineage/derivation (whether
+    a model is derived from a claimed ancestor, inferred from parameter, representation, or watermark
+    evidence), behavior source attribution (whether a particular model/system produced an observed output
+    — inferential, interface-compatible, and weakest), and ownership-signal verification (whether a pre-registered
+    watermark or fingerprint verifies under a stated scheme). Exact identity is often stronger and simpler
+    than any heuristic similarity where organizations sign and attest their model packages: where model
+    signing, attestation, and AI BOMs exist, the cryptographic sub-technique answers the identity question
+    by verification rather than by comparing statistical invariants, so AFIRM orders the sub-techniques
+    to consider the cryptographic path first and reach the inferential paths — parameter, representation,
+    behavioral — only when it is unavailable. An examiner reaches for this technique in provenance disputes,
+    deployment-integrity questions, and as a prerequisite step for other Analysis techniques whose interpretation
+    depends on knowing the identity of the artifact under analysis. The output is always a proposition-specific
+    finding with stated evidence and limits, never a bare assertion of "same model."'
+  claim_profile:
+    does_establish:
+    - 'cryptographic (.001): exact match to a registered package, and with attestation, that it was
+      the loaded artifact'
+    - 'parameter/representation (.002/.003): derivation inferences supported by stated similarity evidence'
+    - 'behavioral (.004): consistency with shared ancestry'
+    - 'watermark (.005): verification under the scheme''s stated soundness'
+    does_not_establish:
+    - 'cryptographic (.001): derivation of an unsigned model, or anything about behavior'
+    - 'parameter/representation (.002/.003): unique derivation, especially under laundering'
+    - 'behavioral (.004): does not distinguish shared ancestry from shared training data or common-source
+      distillation'
+    - 'watermark (.005): verification does not extend beyond the transformations the scheme is proven
+      to survive'
+    alternative_propositions:
+    - behavioral similarity may reflect shared training data or common-source distillation rather than
+      derivation
+    - parameter/representation similarity may reflect convergent training rather than derivation
+    corroboration_requirements:
+    - corroboration across method families, or with T0303 differential-analysis deltas and R0011 manifests,
+      before offering a derivation opinion
+    quality_controls:
+    - prefer the cryptographic path (.001) where signing/attestation exist
+    - present any derivation or source opinion as expert similarity analysis with disclosed limitations
+    stop_conditions:
+    - never present a derivation/source opinion as identification to the exclusion of all other models
+  references:
+  - text: CoSAI Open Model Signing
+    status: verify
+  - text: SLSA provenance (supply-chain attestation)
+    status: verify
+  - text: SPDX AI BOM guidance
+    status: verify
+  - text: HuRef — parameter invariants of LLMs
+    status: verify
+  - text: REEF — representation-encoding fingerprints
+    status: verify
+  - text: Uchida et al. — embedding watermarks in DNN weights
+    status: verify
+  - text: Model-laundering / provenance-obfuscation literature
+    status: verify
+  - text: ISO/IEC 27037 — integrity discipline
+    status: active
+- id: T0402.001
+  name: Cryptographic Package Identity & Attestation Verification
+  phase: P04
+  sub_of: T0402
+  evidence_classes:
+  - EC05
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Established
+    qualification: mechanics
+  readiness_measures:
+  - id: R0005
+    relationship: strengthening
+  - id: R0011
+    relationship: strengthening
+  notes: Digest/signature/manifest/attestation verification — an equality/verification question, not similarity.
+    Strongest and simplest identity path when signing/attestation exist.
+  status: active
+- id: T0402.002
+  name: Parameter-Space Fingerprint Comparison
+  phase: P04
+  sub_of: T0402
+  evidence_classes:
+  - EC05
+  access_capability:
+  - W
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Weight invariants/statistics; heuristic similarity with its own validation conditions.
+  status: active
+- id: T0402.003
+  name: Representation/Activation Fingerprinting
+  phase: P04
+  sub_of: T0402
+  evidence_classes:
+  - EC01
+  - EC05
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Activation/attention similarity.
+  status: active
+- id: T0402.004
+  name: Behavioral Fingerprinting
+  phase: P04
+  sub_of: T0402
+  evidence_classes:
+  - EC02
+  access_capability:
+  - B
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Curated elicitation; open-set caveats.
+  status: active
+- id: T0402.005
+  name: Watermark / Registered-Signal Verification
+  phase: P04
+  sub_of: T0402
+  evidence_classes:
+  - EC02
+  - EC05
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Demonstrated
+    qualification: safer grade
+  readiness_measures: []
+  notes: Verify a pre-registered signal; strength depends on scheme soundness, registration, threat model,
+    and transformation robustness — not on access tier.
+  status: active
+- id: T0403
+  name: Training Data Membership & Provenance Testing
+  phase: P04
+  sub_of: null
+  evidence_classes:
+  - EC05
+  - EC06
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Demonstrated
+    qualification: per sub-technique (ACTION 1 review) — instance-level is Proposed, dataset-level is
+      Demonstrated only under stated control conditions. See profile.
+  readiness_measures: []
+  notes: 'Split (ACTION 1 review): instance-level and dataset-level membership inference have different
+    reliability and must be graded separately, not as one "membership inference" card.'
+  status: active
+  description: 'Training Data Membership & Provenance Testing asks whether specific content was part
+    of a model''s training data. The literature draws a sharp reliability line the card must reflect:
+    instance-level membership inference — deciding whether one specific record was a training member
+    — performs close to random for most domains and is unstable at low false-positive-rate operating
+    points, and much of the published success is attributable to distribution shift between member and
+    non-member sets rather than genuine memorization, since blind baselines that never query the model
+    can outperform published attacks. Dataset-level inference — aggregating many weak per-record signals
+    across a candidate dataset — is substantially more reliable, but only where the private validation
+    set is IID with the candidate data, was withheld from training, remains undisclosed, and the examiner
+    has access to model loss values; aggregation only helps when some underlying membership signal exists
+    and enough text is available. No reviewed study establishes that white-box access improves reliability
+    over grey-box (loss/probability) access. AFIRM therefore grades instance-level and dataset-level inference
+    separately rather than as one technique.'
+  claim_profile:
+    does_establish:
+    - 'instance-level (.001), under stated conditions: weak evidence that a specific record may have
+      appeared in training — low strength, must not be overstated'
+    - 'dataset-level (.002), under IID private-validation-set conditions with loss access: that a candidate
+      dataset, or a sufficiently large collection of its documents, was very likely part of training'
+    does_not_establish:
+    - 'instance-level (.001): that a specific record was in the training set — most published attacks
+      are close to random and unreliable at low false-positive rates'
+    - 'dataset-level (.002): membership for opaque production models where training data, distribution,
+      and loss access are unknown or unverifiable'
+    alternative_propositions:
+    - apparent MI success may reflect distribution shift, temporal shift, or dataset-replication bias
+      between member and non-member sets rather than genuine memorization
+    - a blind baseline that never queries the model can outperform published MI attacks — a positive
+      result must be checked against a blind baseline before being reported as attack-derived signal
+    corroboration_requirements:
+    - run and report a blind baseline alongside any membership-inference result
+    - report performance at low false-positive-rate operating points, not only AUC
+    - state whether member/non-member sets are IID and how temporal/distribution shift was controlled
+    quality_controls:
+    - prefer dataset-level (aggregated) inference over a single-record decision wherever the investigative
+      question allows it
+    - disclose the number of documents aggregated and the underlying per-record signal strength
+    stop_conditions:
+    - do not report an individual membership-inference decision as a forensic finding absent stated control
+      conditions and a blind-baseline comparison
+    - do not claim white-box access improves reliability — no reviewed study establishes this
+  references:
+  - text: Duan, Suri, Mireshghallah, Min, Shi, Zettlemoyer, Tsvetkov, Choi, Evans, Hajishirzi (2024) —
+      Do Membership Inference Attacks Work on Large Language Models?
+    status: verify
+  - text: Das, Zhang, Tramèr (2024) — Blind Baselines Beat Membership Inference Attacks for Foundation
+      Models
+    status: verify
+  - text: Zhang, Das, Kamath, Tramèr (2024) — Position — Membership Inference Attacks Cannot Prove that
+      a Model Was Trained On Your Data
+    status: verify
+  - text: Maini et al. (2024) — LLM Dataset Inference — Did you train on my dataset?
+    status: verify
+  - text: Puerto et al. (2025) — Scaling Up Membership Inference — When and How Attacks Succeed on Large
+      Language Models
+    status: verify
+  - text: Hayes et al. (2025) — Exploring the limits of strong membership inference attacks on large
+      language models
+    status: verify
+- id: T0403.001
+  name: Instance-Level Membership Inference
+  phase: P04
+  sub_of: T0403
+  evidence_classes:
+  - EC05
+  - EC06
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Proposed
+    qualification: downgraded from Demonstrated (ACTION 1 review) — near-random performance outside
+      narrow conditions; benchmark practice confounded by member/non-member distribution shift
+  readiness_measures: []
+  notes: Decides whether one specific record was a training member. Performance is close to random for
+    most domains and unstable at low false-positive-rate operating points.
+  status: active
+- id: T0403.002
+  name: Dataset-Level Membership & Provenance Inference
+  phase: P04
+  sub_of: T0403
+  evidence_classes:
+  - EC05
+  - EC06
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Demonstrated
+    qualification: only under stated control conditions — IID private validation set withheld from training
+      and undisclosed, plus access to model loss values (ACTION 1 review)
+  readiness_measures: []
+  notes: Aggregates many weak per-record membership signals across a candidate dataset. Substantially
+    more reliable than instance-level MI when validation-set conditions hold.
+  status: active
+- id: T0404
+  name: Behavioral Deviation Analysis
+  phase: P04
+  sub_of: null
+  evidence_classes:
+  - EC02
+  access_capability:
+  - B
+  maturity:
+    base: Proposed
+    qualification: Demonstrated as a red-teaming method
+  readiness_measures: []
+  notes: Post-incident probing against a baseline. The research-grade/evidence-grade split is the editorial
+    standard on display.
+  status: active
+- id: T0405
+  name: Internal Mechanism Attribution
+  phase: P04
+  sub_of: null
+  evidence_classes:
+  - EC01
+  - EC05
+  access_capability:
+  - W
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: Activation patching / circuit analysis / feature attribution, scoped to incident attribution;
+    unvalidated forensically.
+  status: active
+- id: T0406
+  name: Contributing-Factor Assessment
+  phase: P04
+  sub_of: null
+  evidence_classes:
+  - P04
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: Ranked contributing-factor set with stated confidence and required alternative propositions;
+    never a single root cause. Distinguishes technical contribution from model/output source attribution,
+    actor attribution, intent, and legal responsibility — it makes only the first. Feeds T0501.
+  status: active
+- id: T0407
+  name: Incident Timeline & Narrative Reconstruction
+  phase: P04
+  sub_of: null
+  evidence_classes:
+  - P04
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures:
+  - id: R0001
+    relationship: strengthening
+  - id: R0006
+    relationship: strengthening
+  notes: Temporal-causal account; consumes T0302 traces; bridges into P05. Needs clock-sync/time-source/uncertainty
+    and correlation IDs (R0001/R0006) to be defensible across distributed components.
+  status: active

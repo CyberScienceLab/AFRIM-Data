@@ -1,0 +1,114 @@
+- id: T0301
+  name: In-Memory AI Artifact Extraction & Reconstruction
+  phase: P03
+  sub_of: null
+  evidence_classes:
+  - EC01
+  access_capability:
+  - W
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Carve/reconstruct architecture + weights from the memory image acquired by T0202. The recovered
+    model is a derived work product, not the same object as an at-rest checkpoint.
+  status: active
+- id: T0302
+  name: Session & Agent Trace Reconstruction
+  phase: P03
+  sub_of: null
+  evidence_classes:
+  - EC01
+  - EC02
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Demonstrated
+    qualification: single-agent
+  readiness_measures: []
+  notes: Parse logs/memory records into structured traces. Parsing is Examination; causal reading is Analysis
+    (routes to T0406).
+  status: active
+- id: T0302.001
+  name: Multi-Agent Trace Correlation & Actor Resolution
+  phase: P03
+  sub_of: T0302
+  evidence_classes:
+  - EC02
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: Correlate traces across agents; resolve actor/tool-call identity; causal interpretation is explicitly
+    T0406, not here.
+  status: active
+- id: T0303
+  name: Weight & Checkpoint Differential Analysis
+  phase: P03
+  sub_of: null
+  evidence_classes:
+  - EC05
+  access_capability:
+  - W
+  maturity:
+    base: Demonstrated
+    qualification: forensic-incident framing is AFIRM’s extension over demonstrated adjacent-domain mechanics
+  readiness_measures:
+  - id: R0002
+    relationship: required
+  - id: R0011
+    relationship: strengthening
+  - id: R0005
+    relationship: strengthening
+  notes: Diff questioned artifact vs authenticated known-good reference to localize parameter changes.
+    Four result levels (byte-identical / exact aligned-tensor / normalized-then-compared / interpretation),
+    each supporting different claim strength. Feeds T0406.
+  status: active
+  description: Weight & Checkpoint Differential Analysis compares a questioned model artifact against
+    an authenticated known-good reference to determine whether parameters differ, and if so where and
+    by how much — the AI analogue of binary differential analysis in classical software forensics. The
+    output is a delta map. As an Examination-phase technique its job ends at producing an accurate, repeatable
+    account of what differs; interpreting why the parameters differ is Analysis-phase work (T0406). Results
+    occur at four distinct levels — byte-identical artifact, exact aligned-tensor comparison, normalized-then-compared,
+    and interpretation of a delta's origin — which must not be conflated, since they rest on different
+    assumptions and support different claims.
+  claim_profile:
+    does_establish:
+    - that the compared, successfully aligned tensors are identical or differ
+    - where they differ and by what magnitude/distribution
+    does_not_establish:
+    - that the right artifacts were compared
+    - that every deployed component was covered
+    - that alignment/normalization was correct
+    - that the reference is authentic and approved
+    - what a delta means
+    alternative_propositions:
+    - a localized delta is consistent with both unauthorized modification and legitimate fine-tuning,
+      patching, or optimization
+    - a no-difference result is consistent with an unmodified model and with modification confined to
+      components outside the compared package
+    corroboration_requirements:
+    - change-management records
+    - R0011 deployment manifests
+    - T0406 assessment
+    quality_controls:
+    - authenticate and verify integrity of both artifacts before comparison
+    - document every normalization step and the comparison-tool version
+    stop_conditions:
+    - stop and report non-comparability where architectures do not align
+    - do not extend a package-level no-change result to the deployed system
+  references:
+  - text: Model IP-verification literature on parameter-level comparison between base and derived models
+    status: verify
+  - text: Fine-tuning delta / task-vector / model-editing literature
+    status: verify
+  - text: Backdoor-insertion literature on parameter-space footprints
+    status: verify
+  - text: NIST IR 8354 — Digital Investigation Techniques
+    status: verify
+  - text: ISO/IEC 27037 — hash verification and integrity discipline
+    status: active

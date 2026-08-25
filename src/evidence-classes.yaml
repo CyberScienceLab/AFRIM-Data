@@ -1,0 +1,38 @@
+- id: EC01
+  name: Live model & session state
+  volatility_rank: 1
+  contents: Running model memory, context windows, KV cache, agent working memory, in-flight tool calls
+  volatility_driver: Lost on process end / session close
+- id: EC02
+  name: Runtime telemetry & interaction logs
+  volatility_rank: 2
+  contents: Prompt/response records, agent-invocation traces, guardrail events, API logs
+  volatility_driver: Rotation & retention windows
+- id: EC03
+  name: Retrieval & memory stores
+  volatility_rank: 3
+  contents: Vector indices, RAG corpora, long-term agent memory stores
+  volatility_driver: Continuous drift; as-at-incident state decays even while the system stays up (silent
+    mutation)
+- id: EC04
+  name: Deployment configuration
+  volatility_rank: 4
+  contents: System prompts, decoding parameters, guardrail configs, model version identifiers, routing/orchestration
+    config
+  volatility_driver: Silent updates; provider changes behavior without changing the public model name
+- id: EC05
+  name: Model artifacts at rest
+  volatility_rank: 5
+  contents: Checkpoints, .safetensors/.pt/.h5, ONNX, fine-tune deltas, adapters
+  volatility_driver: Overwritten by retraining/updates; otherwise stable
+- id: EC06
+  name: Training & pipeline artifacts
+  volatility_rank: 6
+  contents: Training/fine-tuning datasets, RLHF/preference traces, data-pipeline records, eval harness
+    outputs
+  volatility_driver: Retention policy; largely stable once retained
+- id: EC07
+  name: Documentation & static records
+  volatility_rank: 7
+  contents: Model cards, eval reports, procurement/contract records, prior audit reports
+  volatility_driver: Stable

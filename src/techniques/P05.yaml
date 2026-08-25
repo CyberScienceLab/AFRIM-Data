@@ -1,0 +1,57 @@
+- id: T0501
+  name: Structured Claim Formulation
+  phase: P05
+  sub_of: null
+  evidence_classes:
+  - P05
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: 'For each finding: proposition, output type (observation / comparison / statistical inference
+    / causal inference / source-identity inference / legal-regulatory conclusion), source authenticity
+    & integrity, access/coverage limitations, method-validation scope, tool/version/environment verification,
+    repeatability/reproducibility, performance-error-uncertainty, corroborating & conflicting evidence,
+    alternative propositions, case-specific limitations & stop conditions. Any short claim label derives
+    from this profile, never from access alone.'
+  status: active
+- id: T0502
+  name: Evidentiary Standard Assessment
+  phase: P05
+  sub_of: null
+  evidence_classes:
+  - P05
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: 'Maps findings to target-forum standards as versioned jurisdiction overlays (forum, instrument,
+    provision, status/effective date, applicability conditions, mapping type, last verified, source).
+    Seed overlays: US Daubert/FRE 702; proposed FRE 707 (status pending verification); Frye; Canadian
+    Mohan/White Burgess. AFIRM records the mapping without predicting admissibility.'
+  status: active
+- id: T0503
+  name: Regulatory Reporting Alignment
+  phase: P05
+  sub_of: null
+  evidence_classes:
+  - P05
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Maps to EU AI Act evidence-preservation hooks and the OECD reporting framework. Treated as a
+    versioned overlay, since law changes faster than the taxonomy.
+  status: active

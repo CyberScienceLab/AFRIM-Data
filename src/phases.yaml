@@ -1,0 +1,27 @@
+- id: P01
+  name: Identification
+  order: 1
+  scope: Characterize the incident, map the system, determine per-component access, inventory evidence
+    sources with volatility, assess reproducibility. Begins at engagement and iterates; does not gate
+    urgent authorized preservation.
+- id: P02
+  name: Collection
+  order: 2
+  scope: Acquisition, preservation, and custody, prioritized by the T0104.001 volatility ranking as a
+    default, not a gate. Custody anchors here. All collection is subject to Principle 9 (lawful/proportionate)
+    and Principle 10 (safe handling).
+- id: P03
+  name: Examination
+  order: 3
+  scope: 'Processing acquired artifacts into analyzable form. Deliberately thin by design (see GAP G0004:
+    the missing AI-forensic tooling ecosystem).'
+- id: P04
+  name: Analysis
+  order: 4
+  scope: Derive what happened and why, with what confidence. Attribution lives here. Every inferential
+    technique states does/does-not-establish and alternative propositions (Principle 8).
+- id: P05
+  name: Reporting
+  order: 5
+  scope: Formulate structured, bounded claims; map findings to evidentiary standards and regulatory reporting
+    obligations.

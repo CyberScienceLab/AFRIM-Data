@@ -1,0 +1,147 @@
+- id: T0201
+  name: Serialized Model Artifact Acquisition
+  phase: P02
+  sub_of: null
+  evidence_classes:
+  - EC05
+  access_capability:
+  - W
+  maturity:
+    base: Established
+    qualification: null
+  readiness_measures: []
+  notes: Hash-verified checkpoints/adapters at rest. ISO/IEC 27037 ancestry.
+  status: active
+- id: T0202
+  name: Live Process/Accelerator Memory Acquisition
+  phase: P02
+  sub_of: null
+  evidence_classes:
+  - EC01
+  access_capability:
+  - W
+  maturity:
+    base: Demonstrated
+    qualification: null
+  readiness_measures: []
+  notes: Acquire the memory image of the live model process/accelerator. Collection half of the former
+    combined technique; extraction/carving is T0301.
+  status: active
+- id: T0203
+  name: Interaction Log Acquisition
+  phase: P02
+  sub_of: null
+  evidence_classes:
+  - EC02
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Established
+    qualification: null
+  readiness_measures:
+  - id: R0001
+    relationship: strengthening
+  - id: R0006
+    relationship: strengthening
+  notes: Prompt/response, session metadata, agent-invocation records. Availability is an applicability
+    condition.
+  status: active
+- id: T0204
+  name: Retrieval Corpus & Index Snapshot
+  phase: P02
+  sub_of: null
+  evidence_classes:
+  - EC03
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures:
+  - id: R0004
+    relationship: strengthening
+  notes: Corpus, index, embedding model/version, chunking, ingestion pipeline, metadata, ACLs/namespaces,
+    ranking config, agent memory. Post-incident drift unsolved (G0003).
+  status: active
+- id: T0205
+  name: Inference Configuration Capture
+  phase: P02
+  sub_of: null
+  evidence_classes:
+  - EC04
+  access_capability:
+  - W
+  - G
+  maturity:
+    base: Established
+    qualification: null
+  readiness_measures: []
+  notes: System prompt, decoding params, guardrail configs, model/version IDs. Load-bearing for replay.
+  status: active
+- id: T0206
+  name: Black-Box Interaction Capture
+  phase: P02
+  sub_of: null
+  evidence_classes:
+  - EC02
+  access_capability:
+  - B
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: Systematic timestamped I/O through the exposed interface; investigator logs become evidence and
+    take custody.
+  status: active
+- id: T0207
+  name: Training Data Acquisition
+  phase: P02
+  sub_of: null
+  evidence_classes:
+  - EC06
+  access_capability:
+  - W
+  maturity:
+    base: Established
+    qualification: mechanics
+  readiness_measures: []
+  notes: 'Lifecycle applicability does the honest work: applicable at Data-prep/Training/Fine-tuning;
+    rarely at Deployment without provider cooperation or legal process.'
+  status: active
+- id: T0208
+  name: Chain of Custody for AI Artifacts
+  phase: P02
+  sub_of: null
+  evidence_classes:
+  - P02
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Demonstrated
+    qualification: artifact-file custody
+  readiness_measures: []
+  notes: Custody anchors at Collection, maintained through all phases. Black-box collections (T0206 investigator
+    logs) also require custody.
+  status: active
+- id: T0208.001
+  name: Custody of Behavioral/Dynamic Evidence
+  phase: P02
+  sub_of: T0208
+  evidence_classes:
+  - EC01
+  - EC02
+  - EC03
+  access_capability:
+  - W
+  - G
+  - B
+  maturity:
+    base: Proposed
+    qualification: null
+  readiness_measures: []
+  notes: No settled method for custody of behavioral snapshots, replayed sessions, drifting indices.
+  status: active
