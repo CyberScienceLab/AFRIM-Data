@@ -35,9 +35,14 @@
   readiness_measures: []
   notes: 'Maps findings to target-forum standards as versioned jurisdiction overlays (forum, instrument,
     provision, status/effective date, applicability conditions, mapping type, last verified, source).
-    Seed overlays: US Daubert/FRE 702; proposed FRE 707 (status pending verification); Frye; Canadian
-    Mohan/White Burgess. FIRAI records the mapping without predicting admissibility.'
+    Seed overlays: US Daubert/FRE 702; proposed FRE 707 (as of the U.S. Courts Advisory Committee''s May
+    2026 report, not yet ripe for amendment, revised version expected Fall 2026); Frye; Canadian Mohan/White
+    Burgess. FIRAI records the mapping without predicting admissibility.'
   status: active
+  references:
+  - text: Advisory Committee on Evidence Rules (2026) — Report of the Advisory Committee on Evidence Rules.
+      United States Courts
+    status: active
 - id: T0503
   name: Regulatory Reporting Alignment
   phase: P05
@@ -52,6 +57,11 @@
     base: Demonstrated
     qualification: null
   readiness_measures: []
-  notes: Maps to EU AI Act evidence-preservation hooks and the OECD reporting framework. Treated as a
-    versioned overlay, since law changes faster than the taxonomy.
+  notes: Maps to EU AI Act Articles 18/19 (documentation and log retention) and Article 73 (serious-incident
+    reporting), and the OECD reporting framework (citation pending). Treated as a versioned overlay, since
+    law changes faster than the taxonomy.
   status: active
+  references:
+  - text: European Parliament & Council of the European Union (2024) — Regulation (EU) 2024/1689 (Artificial
+      Intelligence Act), Articles 18, 19, and 73
+    status: active

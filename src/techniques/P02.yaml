@@ -12,6 +12,11 @@
   readiness_measures: []
   notes: Hash-verified checkpoints/adapters at rest. ISO/IEC 27037 ancestry.
   status: active
+  references:
+  - text: 'International Organization for Standardization & IEC (2012) — ISO/IEC 27037:2012: Information
+      technology — Security techniques — Guidelines for identification, collection, acquisition and preservation
+      of digital evidence'
+    status: active
 - id: T0202
   name: Live Process/Accelerator Memory Acquisition
   phase: P02

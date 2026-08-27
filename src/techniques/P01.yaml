@@ -129,6 +129,12 @@
     a default, not a dogma: documented component-level facts (e.g. a contractually pinned model version)
     can override it case-by-case.'
   status: active
+  references:
+  - text: 'Brezinski, Killalea (2002) — RFC 3227 (BCP 55): Guidelines for Evidence Collection and Archiving'
+    status: active
+  - text: 'Dehghantanha, Homayoun — AI Forensics Across White-, Grey-, and Black-Box Access: A Process
+      Model and Research Agenda for Post-Incident Investigation of AI Systems'
+    status: active
 - id: T0105
   name: Reproducibility Pre-Assessment
   phase: P01

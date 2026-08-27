@@ -122,11 +122,13 @@
     stop_conditions:
     - never present a derivation/source opinion as identification to the exclusion of all other models
   references:
-  - text: CoSAI Open Model Signing
+  - text: 'Coalition for Secure AI (CoSAI), Workstream 1 (2025) — Signing ML Artifacts: Building Towards
+      Tamper-Proof ML Metadata Records. OASIS Open Project'
     status: active
-  - text: SLSA provenance (supply-chain attestation)
+  - text: SLSA Community (2025) — SLSA Specification (Version 1.2)
     status: active
-  - text: SPDX AI BOM guidance
+  - text: Bennet, Rajbahadur, Suriyawongkul, Stewart (2024) — Implementing AI Bill of Materials (AI BOM)
+      with SPDX 3.0. Linux Foundation Research
     status: active
   - text: 'Zeng, Wang, Hu, Xu, Zhou, Wang, Yu, Lin (2024) — HuRef: HUman-REadable fingerprint for large
       language models'
@@ -385,6 +387,10 @@
     never a single root cause. Distinguishes technical contribution from model/output source attribution,
     actor attribution, intent, and legal responsibility — it makes only the first. Feeds T0501.
   status: active
+  references:
+  - text: 'International Organization for Standardization (2025) — ISO 21043-4:2025: Forensic sciences
+      — Part 4: Interpretation'
+    status: active
 - id: T0407
   name: Incident Timeline & Narrative Reconstruction
   phase: P04
