@@ -28,8 +28,7 @@
     Tool schemas
     Time-dependent external services
 
-    Separate exact/state-matched from distributional replay; sandbox side effects. Failed replay does
-    not refute the incident.
+    Separate exact/state-matched from distributional replay; sandbox side effects. Failed replay does not refute the incident.
   status: active
 - id: T0401.001
   name: Exact / State-Matched Replay
