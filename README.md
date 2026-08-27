@@ -1,15 +1,15 @@
-# afirm-data
+# firai-data
 
-The YAML knowledge base behind **AFIRM** (AI Forensic Investigation Reference
-Matrix): phases, evidence classes, techniques, forensic-readiness measures,
+The YAML knowledge base behind **FIRAI** (Forensic Investigation Reference
+for AI): phases, evidence classes, techniques, forensic-readiness measures,
 and GAP records, plus the schemas and scripts that validate and compile them.
 
 This repo plays the role that `atlas-data` plays for MITRE ATLAS — the single
-source of truth, consumed by the site (`afirm-site`) as a git submodule. It
+source of truth, consumed by the site (`firai-site`) as a git submodule. It
 does **not** contain a website, a build UI, or any editorial/private material
 (no reviewer names, no assignment tracking, no unresolved rulings — those
 live in the private editorial spec, which never enters this repo). See
-`AFIRM's Part X public/private split` if you're wondering why some content
+`FIRAI's Part X public/private split` if you're wondering why some content
 you've seen elsewhere isn't here.
 
 ## Layout
@@ -26,7 +26,7 @@ src/
     gaps.yaml               # G0001-G0006
 schemas/                   # JSON Schema for every record type
 tools/
-  compile.py                # src/ -> dist/AFIRM.yaml + dist/AFIRM.json
+  compile.py                # src/ -> dist/FIRAI.yaml + dist/FIRAI.json
 tests/
   test_validate.py          # pytest: schema + referential-integrity + CI rules
 dist/                       # generated, gitignored — never commit this
@@ -43,12 +43,12 @@ pytest
 
 # compile src/ into a single distributable file
 python tools/compile.py
-# -> dist/AFIRM.yaml, dist/AFIRM.json
+# -> dist/FIRAI.yaml, dist/FIRAI.json
 ```
 
 CI (`.github/workflows/ci.yml`) runs both on every push/PR. A broken
 cross-reference, a schema violation, or an accidentally-leaked private-spec
-marker fails the build before it ever reaches `afirm-site`.
+marker fails the build before it ever reaches `firai-site`.
 
 ## Adding or editing a technique
 

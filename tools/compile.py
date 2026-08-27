@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Compile afirm-data's src/ YAML sources into a single distributable AFIRM.yaml
+Compile firai-data's src/ YAML sources into a single distributable FIRAI.yaml
 (and a JSON mirror for site consumption), the way ATLAS's tools/ compiles
 tactics/techniques/mitigations/case-studies into dist/ATLAS.yaml.
 
@@ -8,8 +8,8 @@ Usage:
     python tools/compile.py
 
 Writes:
-    dist/AFIRM.yaml
-    dist/AFIRM.json
+    dist/FIRAI.yaml
+    dist/FIRAI.json
 """
 import glob
 import json
@@ -87,7 +87,7 @@ def main():
         sys.exit(1)
 
     compiled = {
-        "afirm_version": "0.1",
+        "firai_version": "0.1",
         "schema_version": "0.1",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "counts": compute_counts(techniques, evidence_classes, gaps, readiness),
@@ -99,8 +99,8 @@ def main():
     }
 
     os.makedirs(DIST, exist_ok=True)
-    yaml_path = os.path.join(DIST, "AFIRM.yaml")
-    json_path = os.path.join(DIST, "AFIRM.json")
+    yaml_path = os.path.join(DIST, "FIRAI.yaml")
+    json_path = os.path.join(DIST, "FIRAI.json")
 
     with open(yaml_path, "w") as f:
         yaml.dump(compiled, f, sort_keys=False, allow_unicode=True, width=100)

@@ -1,5 +1,5 @@
 """
-CI data validation for afirm-data, mirroring atlas-data's pytest-based schema
+CI data validation for firai-data, mirroring atlas-data's pytest-based schema
 + referential-integrity checks. Run with:
 
     pytest
@@ -10,7 +10,7 @@ Covers:
   - cross-references (sub_of, readiness_measures, evidence_classes, phase) resolve
   - every inferential technique carries a non-empty claim_profile
     (does_establish / does_not_establish) per Part VI CI rules
-  - dist/AFIRM.yaml, once compiled, matches src/ counts exactly (P1-22:
+  - dist/FIRAI.yaml, once compiled, matches src/ counts exactly (P1-22:
     counts are generated, never hand-maintained)
 """
 import glob
@@ -186,7 +186,7 @@ def test_compile_produces_dist_matching_src_counts(techniques, evidence_classes,
         [sys.executable, os.path.join(ROOT, "tools", "compile.py")],
         check=True, cwd=ROOT,
     )
-    with open(os.path.join(DIST, "AFIRM.yaml")) as f:
+    with open(os.path.join(DIST, "FIRAI.yaml")) as f:
         compiled = yaml.safe_load(f)
 
     counts = compiled["counts"]

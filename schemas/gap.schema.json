@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://afirm.cybersciencelab.com/schemas/gap.schema.json",
-  "title": "AFIRM GAP Record",
+  "$id": "https://firai.cybersciencelab.com/schemas/gap.schema.json",
+  "title": "FIRAI GAP Record",
   "type": "object",
   "required": ["id", "name", "home", "closure_criterion"],
   "additionalProperties": true,

@@ -36,7 +36,7 @@
   notes: 'Maps findings to target-forum standards as versioned jurisdiction overlays (forum, instrument,
     provision, status/effective date, applicability conditions, mapping type, last verified, source).
     Seed overlays: US Daubert/FRE 702; proposed FRE 707 (status pending verification); Frye; Canadian
-    Mohan/White Burgess. AFIRM records the mapping without predicting admissibility.'
+    Mohan/White Burgess. FIRAI records the mapping without predicting admissibility.'
   status: active
 - id: T0503
   name: Regulatory Reporting Alignment

@@ -56,7 +56,7 @@
   - W
   maturity:
     base: Demonstrated
-    qualification: forensic-incident framing is AFIRM’s extension over demonstrated adjacent-domain mechanics
+    qualification: forensic-incident framing is FIRAI’s extension over demonstrated adjacent-domain mechanics
   readiness_measures:
   - id: R0002
     relationship: required

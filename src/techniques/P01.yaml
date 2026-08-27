@@ -69,7 +69,7 @@
   status: active
   description: 'Evidence Source Inventory is the systematic enumeration, begun at engagement and iterated
     throughout, of what evidence exists for an AI incident, where it lives, who controls it, how long
-    it will survive, and what does not exist. For each of AFIRM''s seven evidence classes, the examiner
+    it will survive, and what does not exist. For each of FIRAI''s seven evidence classes, the examiner
     records presence or absence, location and custodian, retention windows, and access constraints per
     component. It descends from the classical identification activity in NIST SP 800-86, but is harder
     in AI systems: evidence existence is not guaranteed by default, and evidence is distributed across

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://afirm.cybersciencelab.com/schemas/evidence-class.schema.json",
-  "title": "AFIRM Evidence Class",
+  "$id": "https://firai.cybersciencelab.com/schemas/evidence-class.schema.json",
+  "title": "FIRAI Evidence Class",
   "type": "object",
   "required": ["id", "name", "volatility_rank"],
   "additionalProperties": true,
