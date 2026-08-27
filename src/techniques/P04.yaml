@@ -129,26 +129,15 @@
   - text: SPDX AI BOM guidance
     status: active
   - text: 'Zeng, Wang, Hu, Xu, Zhou, Wang, Yu, Lin (2024) — HuRef: HUman-REadable fingerprint for large
-      language models. Parameter-based fingerprinting that identifies a suspect model''s base model from
-      stable invariant properties of its parameters, robust to weight permutation/reordering. Anchors
-      T0402.002.'
+      language models'
     status: active
   - text: 'Zhang, Liu, Qian, Zhang, Liu, Qiao, Shao (2025) — REEF: Representation encoding fingerprints
-      for large language models. Compares internal feature representations of a suspect and reference
-      model via CKA similarity; aims to survive fine-tuning, pruning, merging, and parameter permutation.
-      Anchors T0402.003.'
+      for large language models'
     status: active
-  - text: 'Uchida, Nagai, Sakazawa, Satoh (2017) — Embedding watermarks into deep neural networks. Foundational
-      demonstration that a watermark can be embedded directly into network weights and later extracted
-      for verification. Scoped to neural networks generally, not LLMs specifically; robustness is limited
-      — the authors themselves identify watermark overwriting, network morphism, and steganalysis as attack/evaluation
-      concerns. Anchors T0402.005.'
+  - text: Uchida, Nagai, Sakazawa, Satoh (2017) — Embedding watermarks into deep neural networks
     status: active
   - text: 'Aiken, Kim, Woo, Ryoo (2021) — Neural network laundering: Removing black-box backdoor watermarks
-      from deep neural networks. Demonstrates watermark removal, while retaining accuracy, by comparing
-      and retraining highly-active neurons between watermarked and clean-task activations. Anchor for
-      model-laundering / provenance-obfuscation: shows ownership/provenance signals can be weakened or
-      removed by post-processing.'
+      from deep neural networks'
     status: active
   - text: ISO/IEC 27037 — integrity discipline
     status: active
