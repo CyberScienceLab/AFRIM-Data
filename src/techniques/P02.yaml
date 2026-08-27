@@ -67,8 +67,20 @@
   readiness_measures:
   - id: R0004
     relationship: strengthening
-  notes: Corpus, index, embedding model/version, chunking, ingestion pipeline, metadata, ACLs/namespaces,
-    ranking config, agent memory. Post-incident drift unsolved (G0003).
+  notes: |-
+    Capture scope:
+
+    Corpus
+    Index
+    Embedding model/version
+    Chunking
+    Ingestion pipeline
+    Metadata
+    ACLs/namespaces
+    Ranking config
+    Agent memory
+
+    Post-incident drift unsolved (G0003).
   status: active
 - id: T0205
   name: Inference Configuration Capture

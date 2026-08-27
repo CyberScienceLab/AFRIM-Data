@@ -12,12 +12,22 @@
     base: Proposed
     qualification: null
   readiness_measures: []
-  notes: 'For each finding: proposition, output type (observation / comparison / statistical inference
-    / causal inference / source-identity inference / legal-regulatory conclusion), source authenticity
-    & integrity, access/coverage limitations, method-validation scope, tool/version/environment verification,
-    repeatability/reproducibility, performance-error-uncertainty, corroborating & conflicting evidence,
-    alternative propositions, case-specific limitations & stop conditions. Any short claim label derives
-    from this profile, never from access alone.'
+  notes: |-
+    For each finding, the profile covers:
+
+    Proposition
+    Output type (observation / comparison / statistical inference / causal inference / source-identity inference / legal-regulatory conclusion)
+    Source authenticity & integrity
+    Access/coverage limitations
+    Method-validation scope
+    Tool/version/environment verification
+    Repeatability/reproducibility
+    Performance, error & uncertainty
+    Corroborating & conflicting evidence
+    Alternative propositions
+    Case-specific limitations & stop conditions
+
+    Any short claim label derives from this profile, never from access alone.
   status: active
 - id: T0502
   name: Evidentiary Standard Assessment
@@ -33,11 +43,26 @@
     base: Demonstrated
     qualification: null
   readiness_measures: []
-  notes: 'Maps findings to target-forum standards as versioned jurisdiction overlays (forum, instrument,
-    provision, status/effective date, applicability conditions, mapping type, last verified, source).
-    Seed overlays: US Daubert/FRE 702; proposed FRE 707 (as of the U.S. Courts Advisory Committee''s May
-    2026 report, not yet ripe for amendment, revised version expected Fall 2026); Frye; Canadian Mohan/White
-    Burgess. FIRAI records the mapping without predicting admissibility.'
+  notes: |-
+    Maps findings to target-forum standards as versioned jurisdiction overlays, each carrying:
+
+    Forum
+    Instrument
+    Provision
+    Status/effective date
+    Applicability conditions
+    Mapping type
+    Last verified
+    Source
+
+    Seed overlays:
+
+    US Daubert/FRE 702
+    Proposed FRE 707 (as of the U.S. Courts Advisory Committee's May 2026 report, not yet ripe for amendment, revised version expected Fall 2026)
+    Frye
+    Canadian Mohan/White Burgess
+
+    FIRAI records the mapping without predicting admissibility.
   status: active
   references:
   - text: Advisory Committee on Evidence Rules (2026) — Report of the Advisory Committee on Evidence Rules.

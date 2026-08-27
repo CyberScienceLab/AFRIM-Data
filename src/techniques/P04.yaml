@@ -14,10 +14,22 @@
     base: Demonstrated
     qualification: null
   readiness_measures: []
-  notes: 'Broadened prerequisites: model package, tokenizer, adapters, prompt/config, seed/random state,
-    hardware/kernels where material, retrieval snapshot, orchestration code, tool schemas, time-dependent
-    external services. Separate exact/state-matched from distributional replay; sandbox side effects.
-    Failed replay does not refute the incident.'
+  notes: |-
+    Broadened prerequisites:
+
+    Model package
+    Tokenizer
+    Adapters
+    Prompt/config
+    Seed/random state
+    Hardware/kernels where material
+    Retrieval snapshot
+    Orchestration code
+    Tool schemas
+    Time-dependent external services
+
+    Separate exact/state-matched from distributional replay; sandbox side effects. Failed replay does
+    not refute the incident.
   status: active
 - id: T0401.001
   name: Exact / State-Matched Replay
