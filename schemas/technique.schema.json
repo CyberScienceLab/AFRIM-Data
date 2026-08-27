@@ -5,6 +5,22 @@
   "type": "object",
   "required": ["id", "name", "phase", "evidence_classes", "access_capability", "maturity", "status"],
   "additionalProperties": true,
+  "$defs": {
+    "absenceState": {
+      "type": "string",
+      "enum": [
+        "confirmed_nonexistent",
+        "not_configured",
+        "expired",
+        "not_retained",
+        "inaccessible",
+        "not_produced",
+        "not_searched",
+        "unknown"
+      ],
+      "description": "P1-26: 'provider did not produce' (not_produced) is a distinct state from 'logs do not exist' (confirmed_nonexistent) — the distinction matters to both inference and later legal assessment."
+    }
+  },
   "properties": {
     "id": {
       "type": "string",
@@ -63,6 +79,11 @@
     },
     "description": { "type": ["string", "null"] },
     "notes": { "type": ["string", "null"] },
+    "absence_state_vocabulary": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/absenceState" },
+      "description": "The absence-state enum this technique defines/uses (T0104 is the normative source, per P1-26)."
+    },
     "classical_ancestry": { "type": ["string", "null"] },
     "claim_profile": {
       "type": "object",

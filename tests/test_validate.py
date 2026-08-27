@@ -16,6 +16,7 @@ Covers:
 import glob
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -161,7 +162,7 @@ def test_flagship_techniques_have_claim_profiles(techniques):
     # does_not_establish. We check the pages that have been brought up to
     # full content; stub techniques are expected to gain this as their pages
     # are written (tracked, not silently passing forever).
-    written = {"T0104", "T0303"}
+    written = {"T0104", "T0303", "T0402", "T0403"}
     for t in techniques:
         if t["id"] in written:
             cp = t.get("claim_profile") or {}
@@ -170,13 +171,21 @@ def test_flagship_techniques_have_claim_profiles(techniques):
 
 
 def test_public_output_guard_strings_absent_from_src():
-    # Guard against internal assignment/annotation markers making their way
-    # into src/ from editorial drafts.
-    banned = ["[ACTION", "[verify]"]
+    # Guard against internal assignment/annotation/editorial-provenance
+    # markers making their way into src/ from private-spec drafts (Part 0/X:
+    # the public build must never contain [ACTION], [verify], "Ali-ratified",
+    # personal names in assignment context, or private-repo/page-provenance
+    # text). Personal names are checked as whole words so this doesn't
+    # false-positive on substrings (e.g. "Alignment" contains "Ali").
+    banned_substrings = ["[ACTION", "[verify]", "Ali-ratified", "page-provenance", "INTERNAL DRAFT"]
+    banned_name_words = ["Ali", "Zain"]
+    name_pattern = re.compile(r"\b(" + "|".join(re.escape(w) for w in banned_name_words) + r")\b")
     for path in glob.glob(os.path.join(SRC, "**/*.yaml"), recursive=True):
         text = open(path).read()
-        for term in banned:
+        for term in banned_substrings:
             assert term not in text, f"{path} contains banned private-spec marker: {term!r}"
+        m = name_pattern.search(text)
+        assert m is None, f"{path} contains a banned personal name: {m.group(0)!r}"
 
 
 # ------------------------------------------------------------------- compile

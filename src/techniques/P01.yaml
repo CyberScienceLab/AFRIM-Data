@@ -67,6 +67,15 @@
     relationship: strengthening
   notes: safer-grade; classical ancestry Established
   status: active
+  absence_state_vocabulary:
+  - confirmed_nonexistent
+  - not_configured
+  - expired
+  - not_retained
+  - inaccessible
+  - not_produced
+  - not_searched
+  - unknown
   description: 'Evidence Source Inventory is the systematic enumeration, begun at engagement and iterated
     throughout, of what evidence exists for an AI incident, where it lives, who controls it, how long
     it will survive, and what does not exist. For each of FIRAI''s seven evidence classes, the examiner
