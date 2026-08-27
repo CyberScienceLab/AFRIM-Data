@@ -69,7 +69,7 @@
   status: active
   description: 'Evidence Source Inventory is the systematic enumeration, begun at engagement and iterated
     throughout, of what evidence exists for an AI incident, where it lives, who controls it, how long
-    it will survive, and what does not exist. For each of AFIRM''s seven evidence classes, the examiner
+    it will survive, and what does not exist. For each of FIRAI''s seven evidence classes, the examiner
     records presence or absence, location and custodian, retention windows, and access constraints per
     component. It descends from the classical identification activity in NIST SP 800-86, but is harder
     in AI systems: evidence existence is not guaranteed by default, and evidence is distributed across
@@ -91,14 +91,31 @@
     stop_conditions:
     - do not report provider non-production of evidence as confirmed nonexistence
   references:
-  - text: NIST SP 800-86 — Guide to Integrating Forensic Techniques into Incident Response
-    status: verify
-  - text: RFC 3227 — Guidelines for Evidence Collection and Archiving
-    status: verify
-  - text: ISO/IEC 27037 — identification, collection, acquisition and preservation of digital evidence
-    status: verify
-  - text: EU AI Act logging/retention obligations
-    status: verify
+  - text: 'Kent, Chevalier, Grance, Dang (2006) — NIST SP 800-86: Guide to Integrating Forensic Techniques
+      into Incident Response. Classical ancestry for source-identification within the Collection phase;
+      the relevant sections are §3.1 (Data Collection) and §3.1.1 (Identifying Possible Sources of Data).'
+    status: active
+  - text: 'Brezinski, Killalea (2002) — RFC 3227 (BCP 55): Guidelines for Evidence Collection and Archiving.
+      Section 2.1 states the order-of-volatility principle verbatim: "When collecting evidence you should
+      proceed from the volatile to the less volatile, [e.g.] registers, cache; routing table, arp cache,
+      process table, kernel statistics, memory; temporary file systems; disk; remote logging and monitoring
+      data...; physical configuration, network topology; archival media." Normative anchor for T0104.001''s
+      volatility ordering.'
+    status: active
+  - text: 'International Organization for Standardization & IEC (2012) — ISO/IEC 27037:2012: Information
+      technology — Security techniques — Guidelines for identification, collection, acquisition and preservation
+      of digital evidence. Defines "identification" as the process of searching for, recognizing, and
+      documenting potential digital evidence, and covers collection, acquisition, and preservation of
+      that evidence.'
+    status: active
+  - text: 'European Parliament & Council of the European Union (2024) — Regulation (EU) 2024/1689 (Artificial
+      Intelligence Act), Articles 12 and 19. Article 12 requires high-risk AI systems to automatically
+      log events across their lifespan (timing of use, database checked, data matched, verifying person)
+      for traceability, accountability, and safety. Article 19 requires providers to retain those automatically
+      generated logs for at least 6 months (longer where required by EU/national law, or under financial-services
+      recordkeeping law for financial-institution providers). Regulatory hook making documented evidence
+      absence reportable.'
+    status: active
 - id: T0104.001
   name: AI Artifact Volatility Ordering
   phase: P01

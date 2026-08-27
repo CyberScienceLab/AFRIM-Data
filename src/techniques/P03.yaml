@@ -56,7 +56,7 @@
   - W
   maturity:
     base: Demonstrated
-    qualification: forensic-incident framing is AFIRM’s extension over demonstrated adjacent-domain mechanics
+    qualification: forensic-incident framing is FIRAI’s extension over demonstrated adjacent-domain mechanics
   readiness_measures:
   - id: R0002
     relationship: required
@@ -102,13 +102,29 @@
     - stop and report non-comparability where architectures do not align
     - do not extend a package-level no-change result to the deployed system
   references:
-  - text: Model IP-verification literature on parameter-level comparison between base and derived models
-    status: verify
-  - text: Fine-tuning delta / task-vector / model-editing literature
-    status: verify
-  - text: Backdoor-insertion literature on parameter-space footprints
-    status: verify
-  - text: NIST IR 8354 — Digital Investigation Techniques
-    status: verify
+  - text: 'Shang, Li, Chen, Liu, Gu, Wang (2026) — Attesting model lineage by consisted knowledge evolution
+      with fine-tuning trajectory. USENIX Security ''26. Defines a task vector between parent and fine-tuned
+      models and builds an evolution model for lineage verification, showing parameter-level deltas between
+      parent and child can be explicitly computed and used for model IP verification. Anchors T0303.'
+    status: active
+  - text: 'Ilharco, Ribeiro, Wortsman, Gururangan, Schmidt, Hajishirzi, Farhadi (2023) — Editing models
+      with task arithmetic. ICLR 2023. Defines task vectors as the parameter difference between a pretrained
+      and fine-tuned model and shows this delta carries information about the learned task; does not establish
+      that a particular delta pattern uniquely identifies the cause of a modification — the interpretation-layer
+      basis for T0303 and its limits.'
+    status: active
+  - text: 'He, Shen, Xia, Hua, Tong, Zhong (2024) — SGBA: A stealthy scapegoat backdoor attack against
+      deep neural networks. Computers & Security, 136. Shows backdoored models exhibit measurable parameter-distribution
+      differences from clean models, then demonstrates an adaptive attack (SGBA) that constrains weight
+      variance during training to suppress that signal and evade several model-inspection methods —
+      supports both that parameter footprints can carry malicious-modification signal and that an adaptive
+      adversary can deliberately suppress it.'
+    status: active
+  - text: 'Lyle, Guttman, Butler, Sauerwein, Reed, Lloyd (2022) — NIST IR 8354: Digital Investigation Techniques
+      — A NIST Scientific Foundation Review. Frames digital-process errors as systematic rather than random
+      (favoring error-mitigation analysis over a numerical error rate) and distinguishes verification —
+      demonstrating an implementation correctly follows the tool design — from validation; supports the
+      systematic-error and tool-verification framing this technique uses in place of "error rate" language.'
+    status: active
   - text: ISO/IEC 27037 — hash verification and integrity discipline
     status: active

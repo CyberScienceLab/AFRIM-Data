@@ -89,7 +89,7 @@
     watermark or fingerprint verifies under a stated scheme). Exact identity is often stronger and simpler
     than any heuristic similarity where organizations sign and attest their model packages: where model
     signing, attestation, and AI BOMs exist, the cryptographic sub-technique answers the identity question
-    by verification rather than by comparing statistical invariants, so AFIRM orders the sub-techniques
+    by verification rather than by comparing statistical invariants, so FIRAI orders the sub-techniques
     to consider the cryptographic path first and reach the inferential paths — parameter, representation,
     behavioral — only when it is unavailable. An examiner reaches for this technique in provenance disputes,
     deployment-integrity questions, and as a prerequisite step for other Analysis techniques whose interpretation
@@ -128,14 +128,28 @@
     status: verify
   - text: SPDX AI BOM guidance
     status: verify
-  - text: HuRef — parameter invariants of LLMs
-    status: verify
-  - text: REEF — representation-encoding fingerprints
-    status: verify
-  - text: Uchida et al. — embedding watermarks in DNN weights
-    status: verify
-  - text: Model-laundering / provenance-obfuscation literature
-    status: verify
+  - text: 'Zeng, Wang, Hu, Xu, Zhou, Wang, Yu, Lin (2024) — HuRef: HUman-REadable fingerprint for large
+      language models. Parameter-based fingerprinting that identifies a suspect model''s base model from
+      stable invariant properties of its parameters, robust to weight permutation/reordering. Anchors
+      T0402.002.'
+    status: active
+  - text: 'Zhang, Liu, Qian, Zhang, Liu, Qiao, Shao (2025) — REEF: Representation encoding fingerprints
+      for large language models. Compares internal feature representations of a suspect and reference
+      model via CKA similarity; aims to survive fine-tuning, pruning, merging, and parameter permutation.
+      Anchors T0402.003.'
+    status: active
+  - text: 'Uchida, Nagai, Sakazawa, Satoh (2017) — Embedding watermarks into deep neural networks. Foundational
+      demonstration that a watermark can be embedded directly into network weights and later extracted
+      for verification. Scoped to neural networks generally, not LLMs specifically; robustness is limited
+      — the authors themselves identify watermark overwriting, network morphism, and steganalysis as attack/evaluation
+      concerns. Anchors T0402.005.'
+    status: active
+  - text: 'Aiken, Kim, Woo, Ryoo (2021) — Neural network laundering: Removing black-box backdoor watermarks
+      from deep neural networks. Demonstrates watermark removal, while retaining accuracy, by comparing
+      and retraining highly-active neurons between watermarked and clean-task activations. Anchor for
+      model-laundering / provenance-obfuscation: shows ownership/provenance signals can be weakened or
+      removed by post-processing.'
+    status: active
   - text: ISO/IEC 27037 — integrity discipline
     status: active
 - id: T0402.001
@@ -249,7 +263,7 @@
     set is IID with the candidate data, was withheld from training, remains undisclosed, and the examiner
     has access to model loss values; aggregation only helps when some underlying membership signal exists
     and enough text is available. No reviewed study establishes that white-box access improves reliability
-    over grey-box (loss/probability) access. AFIRM therefore grades instance-level and dataset-level inference
+    over grey-box (loss/probability) access. FIRAI therefore grades instance-level and dataset-level inference
     separately rather than as one technique.'
   claim_profile:
     does_establish:

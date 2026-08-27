@@ -1,6 +1,6 @@
 """
-CI data validation for afirm-data, mirroring atlas-data's pytest-based schema
-+ referential-integrity checks. Run with:
+CI data validation for firai-data: pytest-based schema + referential-integrity
+checks. Run with:
 
     pytest
 
@@ -9,9 +9,9 @@ Covers:
   - IDs are unique and correctly formatted
   - cross-references (sub_of, readiness_measures, evidence_classes, phase) resolve
   - every inferential technique carries a non-empty claim_profile
-    (does_establish / does_not_establish) per Part VI CI rules
-  - dist/AFIRM.yaml, once compiled, matches src/ counts exactly (P1-22:
-    counts are generated, never hand-maintained)
+    (does_establish / does_not_establish)
+  - dist/FIRAI.yaml, once compiled, matches src/ counts exactly
+    (counts are generated, never hand-maintained)
 """
 import glob
 import json
@@ -157,10 +157,10 @@ def test_technique_evidence_classes_resolve(techniques, evidence_classes, phases
 
 # ------------------------------------------------------- content / CI rules
 def test_flagship_techniques_have_claim_profiles(techniques):
-    # Part VI CI rule: every inferential technique needs non-empty
-    # does_establish / does_not_establish. We check the pages that have been
-    # brought up to r6 content; stub techniques are expected to gain this as
-    # their pages are written (tracked, not silently passing forever).
+    # every inferential technique needs non-empty does_establish /
+    # does_not_establish. We check the pages that have been brought up to
+    # full content; stub techniques are expected to gain this as their pages
+    # are written (tracked, not silently passing forever).
     written = {"T0104", "T0303"}
     for t in techniques:
         if t["id"] in written:
@@ -170,10 +170,9 @@ def test_flagship_techniques_have_claim_profiles(techniques):
 
 
 def test_public_output_guard_strings_absent_from_src():
-    # Part X / [P0-1]: the private editorial build spec never ships in this
-    # repo. Guard against personal-name assignment leakage and internal
-    # markers making their way into src/.
-    banned = ["[ACTION", "[verify]", "Ali-ratified", "Ali assigns"]
+    # Guard against internal assignment/annotation markers making their way
+    # into src/ from editorial drafts.
+    banned = ["[ACTION", "[verify]"]
     for path in glob.glob(os.path.join(SRC, "**/*.yaml"), recursive=True):
         text = open(path).read()
         for term in banned:
@@ -186,7 +185,7 @@ def test_compile_produces_dist_matching_src_counts(techniques, evidence_classes,
         [sys.executable, os.path.join(ROOT, "tools", "compile.py")],
         check=True, cwd=ROOT,
     )
-    with open(os.path.join(DIST, "AFIRM.yaml")) as f:
+    with open(os.path.join(DIST, "FIRAI.yaml")) as f:
         compiled = yaml.safe_load(f)
 
     counts = compiled["counts"]

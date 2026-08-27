@@ -22,15 +22,15 @@ jobs:
       - name: Run schema + referential-integrity tests
         run: pytest -v
 
-      - name: Compile dist/AFIRM.yaml
+      - name: Compile dist/FIRAI.yaml
         run: python tools/compile.py
 
       - name: Upload compiled dist as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: AFIRM-dist
+          name: FIRAI-dist
           path: dist/
 
-      # afirm-site consumes this repo as a git submodule and compiles it
+      # firai-site consumes this repo as a git submodule and compiles it
       # again at build time, so we don't commit dist/ here — this job exists
-      # to catch a broken compile before it ever reaches afirm-site's CI.
+      # to catch a broken compile before it ever reaches firai-site's CI.
