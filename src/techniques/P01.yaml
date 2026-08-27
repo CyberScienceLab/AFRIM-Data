@@ -122,7 +122,12 @@
   readiness_measures:
   - id: R0009
     relationship: strengthening
-  notes: null
+  notes: 'Sequences acquisition by state-decay rate: the EC01->EC07 row ordering is normative here,
+    extending classical power-loss volatility (RFC 3227) with silent-mutation volatility — artifacts
+    that persist but whose as-at-incident state decays while the system stays up (e.g. a drifting vector
+    index, or a provider silently updating the model behind an unchanged public name). The ordering is
+    a default, not a dogma: documented component-level facts (e.g. a contractually pinned model version)
+    can override it case-by-case.'
   status: active
 - id: T0105
   name: Reproducibility Pre-Assessment
