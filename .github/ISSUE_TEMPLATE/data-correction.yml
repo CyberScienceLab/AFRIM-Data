@@ -1,0 +1,34 @@
+name: Report a data correction
+description: Something in an existing record is wrong, outdated, or unclear.
+labels: ["correction"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Which record?
+      description: A technique/evidence-class/readiness/GAP ID, e.g. T0303 or EC04.
+      placeholder: T0303
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong?
+      description: Be specific — quote the exact text if you can.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested correction
+      description: Optional — what should it say instead?
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: >-
+        If this is a factual correction (a citation, a technical claim), what's
+        the source? Unverified is fine — flag it as such.

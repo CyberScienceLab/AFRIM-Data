@@ -1,0 +1,110 @@
+name: Propose a new technique
+description: Add a technique, sub-technique, evidence class, readiness measure, or GAP record.
+labels: ["new-content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read `CONTRIBUTING.md` first, especially the safer-grade rule and the
+        no-categorical-absence-claims-without-a-search rule. Fill in what you
+        can — it's fine to leave fields blank and discuss them in the issue.
+
+  - type: input
+    id: name
+    attributes:
+      label: Proposed name
+      placeholder: e.g. Prompt Injection Payload Extraction
+    validations:
+      required: true
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      description: Which of the five phases is this technique's home?
+      options:
+        - P01 — Identification
+        - P02 — Collection
+        - P03 — Examination
+        - P04 — Analysis
+        - P05 — Reporting
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: evidence_classes
+    attributes:
+      label: Evidence classes
+      description: Which evidence class(es) does this technique directly consume or produce?
+      options:
+        - label: "EC01 — Live model & session state"
+        - label: "EC02 — Runtime telemetry & interaction logs"
+        - label: "EC03 — Retrieval & memory stores"
+        - label: "EC04 — Deployment configuration"
+        - label: "EC05 — Model artifacts at rest"
+        - label: "EC06 — Training & pipeline artifacts"
+        - label: "EC07 — Documentation & static records"
+
+  - type: checkboxes
+    id: access
+    attributes:
+      label: Access capability
+      description: Coverage/reachability only — not a claim-strength scale (see the Glossary).
+      options:
+        - label: "W — White-box (full internal access)"
+        - label: "G — Grey-box (partial access)"
+        - label: "B — Black-box (interface-only access)"
+
+  - type: dropdown
+    id: maturity
+    attributes:
+      label: Proposed maturity grade
+      description: >-
+        Safer-grade rule: if you're unsure, pick the lower grade. The
+        community disputes upward with evidence, not the reverse.
+      options:
+        - Proposed
+        - Demonstrated
+        - Established
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What does this technique do?
+      description: A few sentences — what question does it answer, what does an examiner actually do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: does_establish
+    attributes:
+      label: What does it establish, and what does it NOT establish?
+      description: >-
+        Every technique needs this distinction stated explicitly — see
+        Principle 7 in CONTRIBUTING.md.
+      placeholder: |
+        Does establish: ...
+        Does not establish: ...
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: >-
+        One per line. Mark each as verified or not — unverified citations are
+        fine to submit, they'll be tracked with status: verify until someone
+        confirms them.
+      placeholder: |
+        Author, Year — Title (verified / not yet verified)
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I've read CONTRIBUTING.md
+          required: true
+        - label: I checked this isn't a duplicate of an existing technique
+          required: true
