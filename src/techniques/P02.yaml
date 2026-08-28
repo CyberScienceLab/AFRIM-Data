@@ -29,8 +29,8 @@
     base: Demonstrated
     qualification: null
   readiness_measures: []
-  notes: Acquire the memory image of the live model process/accelerator. Collection half of the former
-    combined technique; extraction/carving is T0301.
+  notes: Acquire the memory image of the live model process/accelerator. Extraction and carving of the
+    recovered artifact from that image is a separate technique (T0301).
   status: active
 - id: T0203
   name: Interaction Log Acquisition

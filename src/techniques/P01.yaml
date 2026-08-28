@@ -12,8 +12,9 @@
     base: Demonstrated
     qualification: null
   readiness_measures: []
-  notes: Provisional, revisable four-tag typing (attack/failure/drift/misuse); v0.2 will split into orthogonal
-    fields (manifestation, system locus, causal hypothesis, actor/intent status, confidence).
+  notes: Characterizes the incident using four provisional tags — attack, failure, drift, misuse —
+    which may overlap. The typing is intentionally coarse so it does not prematurely bias method selection
+    in later phases.
   status: active
 - id: T0102
   name: Access Level Determination
@@ -131,7 +132,7 @@
   readiness_measures:
   - id: R0009
     relationship: strengthening
-  notes: 'Sequences acquisition by state-decay rate: the EC01->EC07 row ordering is normative here,
+  notes: 'Sequences acquisition by state-decay rate: the EC01→EC07 row ordering is normative here,
     extending classical power-loss volatility (RFC 3227) with silent-mutation volatility — artifacts
     that persist but whose as-at-incident state decays while the system stays up (e.g. a drifting vector
     index, or a provider silently updating the model behind an unchanged public name). The ordering is

@@ -85,9 +85,16 @@
     relationship: strengthening
   - id: R0002
     relationship: strengthening
-  notes: 'Separates propositions: exact artifact identity/integrity . deployment identity . lineage/derivation
-    . behavior source attribution . ownership-signal verification. Cryptographic identity/attestation
-    is the first sub-technique.'
+  notes: |-
+    Separates propositions:
+
+    Exact artifact identity/integrity
+    Deployment identity
+    Lineage/derivation
+    Behavior source attribution
+    Ownership-signal verification
+
+    Cryptographic identity/attestation is the first sub-technique.
   status: active
   description: 'Model Identity & Provenance Verification addresses several distinct forensic propositions
     that must not be collapsed into one "identity" question, because they require different evidence
@@ -248,11 +255,11 @@
   - G
   maturity:
     base: Demonstrated
-    qualification: per sub-technique (ACTION 1 review) — instance-level is Proposed, dataset-level is
-      Demonstrated only under stated control conditions. See profile.
+    qualification: per sub-technique — instance-level is Proposed, dataset-level is Demonstrated only
+      under stated control conditions. See profile.
   readiness_measures: []
-  notes: 'Split (ACTION 1 review): instance-level and dataset-level membership inference have different
-    reliability and must be graded separately, not as one "membership inference" card.'
+  notes: 'Instance-level and dataset-level membership inference have different reliability and are graded
+    separately, not as one "membership inference" card.'
   status: active
   description: 'Training Data Membership & Provenance Testing asks whether specific content was part
     of a model''s training data. The literature draws a sharp reliability line the card must reflect:
@@ -325,8 +332,8 @@
   - G
   maturity:
     base: Proposed
-    qualification: downgraded from Demonstrated (ACTION 1 review) — near-random performance outside
-      narrow conditions; benchmark practice confounded by member/non-member distribution shift
+    qualification: downgraded from Demonstrated — near-random performance outside narrow conditions;
+      benchmark practice confounded by member/non-member distribution shift
   readiness_measures: []
   notes: Decides whether one specific record was a training member. Performance is close to random for
     most domains and unstable at low false-positive-rate operating points.
@@ -344,7 +351,7 @@
   maturity:
     base: Demonstrated
     qualification: only under stated control conditions — IID private validation set withheld from training
-      and undisclosed, plus access to model loss values (ACTION 1 review)
+      and undisclosed, plus access to model loss values
   readiness_measures: []
   notes: Aggregates many weak per-record membership signals across a candidate dataset. Substantially
     more reliable than instance-level MI when validation-set conditions hold.
@@ -361,8 +368,7 @@
     base: Proposed
     qualification: Demonstrated as a red-teaming method
   readiness_measures: []
-  notes: Post-incident probing against a baseline. The research-grade/evidence-grade split is the editorial
-    standard on display.
+  notes: Post-incident probing against a baseline.
   status: active
 - id: T0405
   name: Internal Mechanism Attribution
