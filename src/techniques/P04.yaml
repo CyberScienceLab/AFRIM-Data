@@ -115,30 +115,30 @@
     finding with stated evidence and limits, never a bare assertion of "same model."'
   claim_profile:
     does_establish:
-    - 'cryptographic (.001): exact match to a registered package, and with attestation, that it was
+    - 'Cryptographic (.001): exact match to a registered package, and with attestation, that it was
       the loaded artifact'
-    - 'parameter/representation (.002/.003): derivation inferences supported by stated similarity evidence'
-    - 'behavioral (.004): consistency with shared ancestry'
-    - 'watermark (.005): verification under the scheme''s stated soundness'
+    - 'Parameter/representation (.002/.003): derivation inferences supported by stated similarity evidence'
+    - 'Behavioral (.004): consistency with shared ancestry'
+    - 'Watermark (.005): verification under the scheme''s stated soundness'
     does_not_establish:
-    - 'cryptographic (.001): derivation of an unsigned model, or anything about behavior'
-    - 'parameter/representation (.002/.003): unique derivation, especially under laundering'
-    - 'behavioral (.004): does not distinguish shared ancestry from shared training data or common-source
+    - 'Cryptographic (.001): derivation of an unsigned model, or anything about behavior'
+    - 'Parameter/representation (.002/.003): unique derivation, especially under laundering'
+    - 'Behavioral (.004): does not distinguish shared ancestry from shared training data or common-source
       distillation'
-    - 'watermark (.005): verification does not extend beyond the transformations the scheme is proven
+    - 'Watermark (.005): verification does not extend beyond the transformations the scheme is proven
       to survive'
     alternative_propositions:
-    - behavioral similarity may reflect shared training data or common-source distillation rather than
+    - Behavioral similarity may reflect shared training data or common-source distillation rather than
       derivation
-    - parameter/representation similarity may reflect convergent training rather than derivation
+    - Parameter/representation similarity may reflect convergent training rather than derivation
     corroboration_requirements:
-    - corroboration across method families, or with T0303 differential-analysis deltas and R0011 manifests,
+    - Corroboration across method families, or with T0303 differential-analysis deltas and R0011 manifests,
       before offering a derivation opinion
     quality_controls:
-    - prefer the cryptographic path (.001) where signing/attestation exist
-    - present any derivation or source opinion as expert similarity analysis with disclosed limitations
+    - Prefer the cryptographic path (.001) where signing/attestation exist
+    - Present any derivation or source opinion as expert similarity analysis with disclosed limitations
     stop_conditions:
-    - never present a derivation/source opinion as identification to the exclusion of all other models
+    - Never present a derivation/source opinion as identification to the exclusion of all other models
   references:
   - text: 'Coalition for Secure AI (CoSAI), Workstream 1 (2025) — Signing ML Artifacts: Building Towards
       Tamper-Proof ML Metadata Records. OASIS Open Project'
@@ -276,32 +276,32 @@
     separately rather than as one technique.'
   claim_profile:
     does_establish:
-    - 'instance-level (.001), under stated conditions: weak evidence that a specific record may have
+    - 'Instance-level (.001), under stated conditions: weak evidence that a specific record may have
       appeared in training — low strength, must not be overstated'
-    - 'dataset-level (.002), under IID private-validation-set conditions with loss access: that a candidate
+    - 'Dataset-level (.002), under IID private-validation-set conditions with loss access: that a candidate
       dataset, or a sufficiently large collection of its documents, was very likely part of training'
     does_not_establish:
-    - 'instance-level (.001): that a specific record was in the training set — most published attacks
+    - 'Instance-level (.001): that a specific record was in the training set — most published attacks
       are close to random and unreliable at low false-positive rates'
-    - 'dataset-level (.002): membership for opaque production models where training data, distribution,
+    - 'Dataset-level (.002): membership for opaque production models where training data, distribution,
       and loss access are unknown or unverifiable'
     alternative_propositions:
-    - apparent MI success may reflect distribution shift, temporal shift, or dataset-replication bias
+    - Apparent MI success may reflect distribution shift, temporal shift, or dataset-replication bias
       between member and non-member sets rather than genuine memorization
-    - a blind baseline that never queries the model can outperform published MI attacks — a positive
+    - A blind baseline that never queries the model can outperform published MI attacks — a positive
       result must be checked against a blind baseline before being reported as attack-derived signal
     corroboration_requirements:
-    - run and report a blind baseline alongside any membership-inference result
-    - report performance at low false-positive-rate operating points, not only AUC
-    - state whether member/non-member sets are IID and how temporal/distribution shift was controlled
+    - Run and report a blind baseline alongside any membership-inference result
+    - Report performance at low false-positive-rate operating points, not only AUC
+    - State whether member/non-member sets are IID and how temporal/distribution shift was controlled
     quality_controls:
-    - prefer dataset-level (aggregated) inference over a single-record decision wherever the investigative
+    - Prefer dataset-level (aggregated) inference over a single-record decision wherever the investigative
       question allows it
-    - disclose the number of documents aggregated and the underlying per-record signal strength
+    - Disclose the number of documents aggregated and the underlying per-record signal strength
     stop_conditions:
-    - do not report an individual membership-inference decision as a forensic finding absent stated control
+    - Do not report an individual membership-inference decision as a forensic finding absent stated control
       conditions and a blind-baseline comparison
-    - do not claim white-box access improves reliability — no reviewed study establishes this
+    - Do not claim white-box access improves reliability — no reviewed study establishes this
   references:
   - text: Duan, Suri, Mireshghallah, Min, Shi, Zettlemoyer, Tsvetkov, Choi, Evans, Hajishirzi (2024) —
       Do Membership Inference Attacks Work on Large Language Models?

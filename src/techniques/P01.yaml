@@ -66,7 +66,9 @@
   readiness_measures:
   - id: R0009
     relationship: strengthening
-  notes: safer-grade; classical ancestry Established
+  notes: Graded Proposed under the safer-grade rule — although the classical identification activity
+    it descends from (NIST SP 800-86) is well established, this AI-specific extension has not yet been
+    independently validated at that level.
   status: active
   absence_state_vocabulary:
   - confirmed_nonexistent
@@ -86,20 +88,21 @@
     components with different owners under different retention policies and legal postures.'
   claim_profile:
     does_establish:
-    - presence, absence, location, custodian, and retention window of evidence per class and component,
+    - Presence, absence, location, custodian, and retention window of evidence per class and component,
       as documented at inventory time
     does_not_establish:
-    - that a component reported as evidence-absent is genuinely nonexistent rather than merely not produced
+    - That a component reported as evidence-absent is genuinely nonexistent rather than merely not produced
     alternative_propositions:
-    - absence may reflect not_configured, expired, not_retained, inaccessible, not_produced, not_searched,
-      or confirmed_nonexistent — these are distinct states, not synonyms
+    - Absence may reflect the component not being configured, expiry, non-retention, inaccessibility,
+      non-production, an incomplete search, or confirmed nonexistence — these are distinct states, not
+      synonyms
     corroboration_requirements:
-    - custodian representations documented verbatim so later contradictions are provable
+    - Custodian representations documented verbatim so later contradictions are provable
     quality_controls:
-    - timestamp the inventory
-    - initiate authorized preservation immediately through the engagement's legal/organizational process
+    - Timestamp the inventory
+    - Initiate authorized preservation immediately through the engagement's legal/organizational process
     stop_conditions:
-    - do not report provider non-production of evidence as confirmed nonexistence
+    - Do not report provider non-production of evidence as confirmed nonexistence
   references:
   - text: 'Kent, Chevalier, Grance, Dang (2006) — NIST SP 800-86: Guide to Integrating Forensic Techniques
       into Incident Response'

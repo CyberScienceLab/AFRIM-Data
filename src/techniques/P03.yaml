@@ -78,29 +78,29 @@
     assumptions and support different claims.
   claim_profile:
     does_establish:
-    - that the compared, successfully aligned tensors are identical or differ
-    - where they differ and by what magnitude/distribution
+    - That the compared, successfully aligned tensors are identical or differ
+    - Where they differ and by what magnitude/distribution
     does_not_establish:
-    - that the right artifacts were compared
-    - that every deployed component was covered
-    - that alignment/normalization was correct
-    - that the reference is authentic and approved
-    - what a delta means
+    - That the right artifacts were compared
+    - That every deployed component was covered
+    - That alignment/normalization was correct
+    - That the reference is authentic and approved
+    - What a delta means
     alternative_propositions:
-    - a localized delta is consistent with both unauthorized modification and legitimate fine-tuning,
+    - A localized delta is consistent with both unauthorized modification and legitimate fine-tuning,
       patching, or optimization
-    - a no-difference result is consistent with an unmodified model and with modification confined to
+    - A no-difference result is consistent with an unmodified model and with modification confined to
       components outside the compared package
     corroboration_requirements:
-    - change-management records
+    - Change-management records
     - R0011 deployment manifests
     - T0406 assessment
     quality_controls:
-    - authenticate and verify integrity of both artifacts before comparison
-    - document every normalization step and the comparison-tool version
+    - Authenticate and verify integrity of both artifacts before comparison
+    - Document every normalization step and the comparison-tool version
     stop_conditions:
-    - stop and report non-comparability where architectures do not align
-    - do not extend a package-level no-change result to the deployed system
+    - Stop and report non-comparability where architectures do not align
+    - Do not extend a package-level no-change result to the deployed system
   references:
   - text: Shang, Li, Chen, Liu, Gu, Wang (2026) — Attesting model lineage by consisted knowledge evolution
       with fine-tuning trajectory. USENIX Security '26
